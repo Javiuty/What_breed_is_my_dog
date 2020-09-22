@@ -21,6 +21,7 @@
 
 const BREEDS_URL = "https://dog.ceo/api/breeds/list/all";
 const select = document.querySelector(".breeds");
+const imgDog = document.querySelector(".doggos__img");
 
 fetch(BREEDS_URL)
   .then(function (response) {
@@ -42,14 +43,22 @@ fetch(BREEDS_URL)
 
 select.addEventListener("change", function (event) {
   // console.log(event.target.value);
-  console.log(`https://dog.ceo/api/breed/${event.target.value}/images/random`);
 
   // make url
   const selectURL = `https://dog.ceo/api/breed/${event.target.value}/images/random`;
   // show loading spinner
 
   // fetch from the API
-
+  function selectAPI() {
+    fetch(selectURL)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        imgDog.src = data.message;
+      });
+  }
+  selectAPI();
   // use the URL to change the current image
 
   // stop showing loading spinner

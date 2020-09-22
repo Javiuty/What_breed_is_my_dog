@@ -1,0 +1,93 @@
+:root {
+  --color-primary: #481802;
+  --color-secondary: #0190a0;
+}
+
+// queries
+$bp-medium: 50em;
+$bp-small: 31.25em;
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Chicle", cursive;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-weight: 400;
+}
+
+.header {
+  color: #fff;
+  min-height: 10vh;
+  background: #481802;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__title {
+    font-size: 3rem;
+    margin: 0 auto;
+  }
+}
+
+.doggos {
+  min-height: 50vh;
+  background: rgba(72, 24, 2, 0.8);
+  padding: 5rem;
+
+  display: grid;
+  grid-template-columns: 30% 70%;
+
+  @media (max-width: $bp-medium) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3fr;
+  }
+
+  &__select {
+    justify-self: end;
+    align-self: center;
+    background-color: red;
+
+    @media (max-width: $bp-medium) {
+      justify-self: center;
+    }
+
+    select {
+      font-size: 2.5rem;
+      background-color: var(--color-primary);
+      color: #fff;
+      box-shadow: 1px 15px 5px -6px rgba(0, 0, 0, 0.75);
+
+      @media (max-width: $bp-small) {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  &__img {
+    justify-self: center;
+    align-self: center;
+    height: 40rem;
+    width: 40rem;
+    box-shadow: 1px 15px 5px -6px rgba(0, 0, 0, 0.75);
+
+    @media (max-width: $bp-small) {
+      height: 20rem;
+      width: 20rem;
+    }
+  }
+}
+
+.footer {
+  height: 40vh;
+  background: rgba(72, 24, 2, 0.5);
+}

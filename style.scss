@@ -93,3 +93,22 @@ body {
   height: 40vh;
   background: rgba(72, 24, 2, 0.5);
 }
+
+// ANIMATION
+
+@keyframes spin {
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+.spinner {
+  font-size: 5rem;
+  text-align: center;
+  animation: 2s spin linear infinite;
+  display: none;
+}
+
+.show {
+  display: block;
+}

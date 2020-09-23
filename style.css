@@ -115,4 +115,30 @@ body {
   height: 40vh;
   background: rgba(72, 24, 2, 0.5);
 }
+
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
+  }
+}
+
+@keyframes spin {
+  to {
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
+  }
+}
+
+.spinner {
+  font-size: 5rem;
+  text-align: center;
+  -webkit-animation: 2s spin linear infinite;
+          animation: 2s spin linear infinite;
+  display: none;
+}
+
+.show {
+  display: block;
+}
 /*# sourceMappingURL=style.css.map */

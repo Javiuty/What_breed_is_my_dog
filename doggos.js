@@ -22,6 +22,7 @@
 const BREEDS_URL = "https://dog.ceo/api/breeds/list/all";
 const select = document.querySelector(".breeds");
 const imgDog = document.querySelector(".doggos__img");
+const spinner = document.querySelector(".spinner");
 
 fetch(BREEDS_URL)
   .then(function (response) {
@@ -43,19 +44,20 @@ fetch(BREEDS_URL)
 
 select.addEventListener("change", function (event) {
   // console.log(event.target.value);
-
   // make url
   const selectURL = `https://dog.ceo/api/breed/${event.target.value}/images/random`;
   // show loading spinner
 
   // fetch from the API
   function selectAPI() {
+    // spinner.classList.add("show"); Spinner starts (It's commented because fetch is very fast)
     fetch(selectURL)
       .then((response) => {
         return response.json();
       })
       .then((data) => {
         imgDog.src = data.message;
+        // spinner.classList.remove("show"); Here we remove spinner
       });
   }
   selectAPI();
